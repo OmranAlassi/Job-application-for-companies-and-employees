@@ -1,14 +1,15 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:jobs/classes/route_page.dart';
-import 'package:jobs/classes/style&create_login_screen.dart';
-import 'package:jobs/classes/texthome_screen.dart';
-import 'package:jobs/components/app_elevatedbutton.dart';
-import 'package:jobs/components/custom_container.dart';
-import 'package:jobs/components/custom_container2.dart';
-import 'package:jobs/components/app_textformfiled.dart';
-import 'package:jobs/components/custom_togglebuttons.dart';
+import 'package:jobs/core/const/app_colors.dart';
+import 'package:jobs/core/const/app_icons.dart';
+import 'package:jobs/core/const/app_strings.dart';
+import 'package:jobs/core/route_manager.dart';
+import 'package:jobs/common/widgets/app_elevatedbutton.dart';
+import 'package:jobs/features/auth/presentation_layer/widgets/custom_container.dart';
+import 'package:jobs/features/auth/presentation_layer/widgets/custom_container2.dart';
+import 'package:jobs/features/auth/presentation_layer/widgets/app_textformfiled.dart';
+import 'package:jobs/features/auth/presentation_layer/widgets/custom_togglebuttons.dart';
 
 TextEditingController text1 = TextEditingController();
 TextEditingController text2 = TextEditingController();
@@ -30,7 +31,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: CustomContainer(
-        colors: [styles[0].backgroundcolor!, styles[3].backgroundcolor!],
+        colors: [AppColor.teal, AppColor.tealAccent],
         height: double.infinity,
         width: double.infinity,
         child: SingleChildScrollView(
@@ -49,15 +50,15 @@ class _LoginScreenState extends State<LoginScreen> {
                   children: [
                     SizedBox(),
                     SvgPicture.asset(
-                      icons[13],
+                      AppIcons.work,
                       height: 70,
                       // ignore: deprecated_member_use
-                      color: styles[0].backgroundcolor,
+                      color: AppColor.teal,
                     ),
                     Text(
-                      styles[0].title!.tr(),
+                      titles[0].title!.tr(),
                       style: TextStyle(
-                        color: styles[0].backgroundcolor,
+                        color: AppColor.teal,
                         fontWeight: FontWeight.bold,
                         fontSize: 26,
                       ),
@@ -102,7 +103,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 ),
                                 controller: text1,
                                 hintText: Text(
-                                  styles[1].title!.tr(),
+                                  titles[1].title!.tr(),
                                   style: TextStyle(fontSize: 15),
                                 ),
                                 textInputAction: TextInputAction.next,
@@ -117,8 +118,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   );
 
                                   if (!emailRegex.hasMatch(value)) {
-                                    return 'يرجى إدخال بريد إلكتروني صالح مثل example@domain.com'
-                                        .tr();
+                                    return 'يرجى إدخال بريد إلكتروني صالح'.tr();
                                   }
                                   return null;
                                 },
@@ -131,7 +131,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   size: 25,
                                 ),
                                 hintText: Text(
-                                  styles[3].title!.tr(),
+                                  titles[3].title!.tr(),
                                   style: TextStyle(fontSize: 15),
                                 ),
                                 textInputAction: TextInputAction.next,
@@ -158,12 +158,12 @@ class _LoginScreenState extends State<LoginScreen> {
                               isobscure
                                   ? Icons.visibility_off
                                   : Icons.visibility,
-                              color: styles[2].backgroundcolor,
+                              color: AppColor.gray,
                               size: 25,
                             ),
                           ),
                           hintText: Text(
-                            styles[2].title!.tr(),
+                            titles[2].title!.tr(),
                             style: TextStyle(fontSize: 15),
                           ),
                           textInputAction: TextInputAction.go,
@@ -190,7 +190,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               'نسيت كلمة السر؟'.tr(),
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                color: styles[0].backgroundcolor,
+                                color: AppColor.teal,
                                 fontSize: 15,
                               ),
                             ),
@@ -201,9 +201,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                 'إعادة تعيين كلمة السر'.tr(),
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
-                                  color: styles[0].backgroundcolor,
+                                  color: AppColor.teal,
                                   decoration: TextDecoration.underline,
-                                  decorationColor: styles[0].backgroundcolor,
+                                  decorationColor: AppColor.teal,
                                   fontSize: 15,
                                 ),
                               ),
@@ -218,7 +218,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               text3.clear();
                             }
                           },
-                          title: styles[0].title!.tr(),
+                          title: titles[0].title!.tr(),
                           elevation: 3,
                           fixedSize: Size(
                             MediaQuery.of(context).size.width * 0.75,
@@ -235,7 +235,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               'ليس لديك حساب؟'.tr(),
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                color: styles[0].backgroundcolor,
+                                color: AppColor.teal,
                                 fontSize: 15,
                               ),
                             ),
@@ -250,7 +250,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 'إنشاء حساب جديد'.tr(),
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
-                                  color: styles[0].backgroundcolor,
+                                  color: AppColor.teal,
                                   fontSize: 15,
                                 ),
                               ),

@@ -1,13 +1,14 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:jobs/addjobs_screen.dart';
-import 'package:jobs/classes/route_page.dart';
-import 'package:jobs/classes/style&create_login_screen.dart';
-import 'package:jobs/classes/texthome_screen.dart';
-import 'package:jobs/file_screen.dart';
-import 'package:jobs/home_screen.dart';
-import 'package:jobs/jobs_screen.dart';
+import 'package:jobs/features/screens/addjobs_screen.dart';
+import 'package:jobs/core/const/app_colors.dart';
+import 'package:jobs/core/const/app_icons.dart';
+import 'package:jobs/core/const/app_strings.dart';
+import 'package:jobs/core/route_manager.dart';
+import 'package:jobs/features/screens/file_screen.dart';
+import 'package:jobs/features/home/home_screen.dart';
+import 'package:jobs/features/screens/jobs_screen.dart';
 
 class SuperhomeScreen extends StatefulWidget {
   const SuperhomeScreen({super.key});
@@ -30,7 +31,7 @@ class _SuperhomeScreenState extends State<SuperhomeScreen> {
     return Scaffold(
       drawer: Drawer(
         width: MediaQuery.of(context).size.width * 0.77,
-        backgroundColor: styles[4].backgroundcolor,
+        backgroundColor: AppColor.white2,
         child: Padding(
           padding: const EdgeInsets.only(top: 50),
           child: Column(
@@ -41,11 +42,11 @@ class _SuperhomeScreenState extends State<SuperhomeScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     CircleAvatar(
-                      backgroundColor: styles[0].backgroundcolor,
+                      backgroundColor: AppColor.teal,
                       radius: 32,
                       child: Icon(
                         Icons.person,
-                        color: styles[4].backgroundcolor,
+                        color: AppColor.white2,
                         size: 30,
                       ),
                     ),
@@ -59,26 +60,26 @@ class _SuperhomeScreenState extends State<SuperhomeScreen> {
                 ),
               ),
               ListTile(
-                leading: SvgPicture.asset(icons[10]),
+                leading: SvgPicture.asset(AppIcons.setting),
                 title: Text('الأعدادت'.tr()),
               ),
 
               ListTile(
-                leading: SvgPicture.asset(icons[11], height: 22),
+                leading: SvgPicture.asset(AppIcons.account, height: 22),
                 title: Text('الحساب'.tr()),
               ),
 
               ListTile(
-                leading: SvgPicture.asset(icons[12], height: 22),
+                leading: SvgPicture.asset(AppIcons.about, height: 22),
                 title: Text('معلومات عنا'.tr()),
               ),
 
               ListTile(
                 leading: SvgPicture.asset(
-                  icons[4],
+                  AppIcons.logout1,
                   height: 22,
                   // ignore: deprecated_member_use
-                  color: styles[0].backgroundcolor,
+                  color: AppColor.teal,
                 ),
                 title: InkWell(
                   onTap: () {
@@ -88,14 +89,14 @@ class _SuperhomeScreenState extends State<SuperhomeScreen> {
                 ),
               ),
               ListTile(
-                leading: Icon(Icons.language, color: styles[2].backgroundcolor),
+                leading: Icon(Icons.language, color: AppColor.gray),
                 title: Text('اللغة'.tr()),
               ),
               RadioListTile<String>(
                 title: Text('English'),
                 value: 'en',
                 groupValue: selectedLanguage,
-                activeColor: styles[0].backgroundcolor,
+                activeColor: AppColor.teal,
                 onChanged: (value) {
                   setState(() {
                     selectedLanguage = value!;
@@ -107,7 +108,7 @@ class _SuperhomeScreenState extends State<SuperhomeScreen> {
                 title: Text('العربية'),
                 value: 'ar',
                 groupValue: selectedLanguage,
-                activeColor: styles[0].backgroundcolor,
+                activeColor: AppColor.teal,
                 onChanged: (value) {
                   setState(() {
                     selectedLanguage = value!;
@@ -120,7 +121,7 @@ class _SuperhomeScreenState extends State<SuperhomeScreen> {
         ),
       ),
       appBar: AppBar(
-        backgroundColor: styles[4].backgroundcolor,
+        backgroundColor: AppColor.white2,
         elevation: 0,
         scrolledUnderElevation: 0,
         shape: RoundedRectangleBorder(
@@ -131,13 +132,10 @@ class _SuperhomeScreenState extends State<SuperhomeScreen> {
           ),
         ),
 
-        title: Text(
-          'لوحة الشركة'.tr(),
-          style: TextStyle(color: styles[0].backgroundcolor),
-        ),
+        title: Text('لوحة الشركة'.tr(), style: TextStyle(color: AppColor.teal)),
         centerTitle: true,
         actionsPadding: EdgeInsets.only(right: 5),
-        actionsIconTheme: IconThemeData(color: styles[0].backgroundcolor),
+        actionsIconTheme: IconThemeData(color: AppColor.teal),
       ),
       body: pages[selectedindex],
       bottomNavigationBar: Container(
@@ -165,51 +163,49 @@ class _SuperhomeScreenState extends State<SuperhomeScreen> {
               highlightColor: Colors.transparent,
             ),
             child: BottomNavigationBar(
-              backgroundColor: styles[4].backgroundcolor,
-              selectedItemColor: styles[0].backgroundcolor,
+              backgroundColor: AppColor.white2,
+              selectedItemColor: AppColor.teal,
               selectedFontSize: 12,
               showSelectedLabels: true,
               showUnselectedLabels: false,
               type: BottomNavigationBarType.fixed,
               unselectedLabelStyle: TextStyle(
                 fontSize: 10,
-                color: styles[2].backgroundcolor,
+                color: AppColor.gray,
               ),
               selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
-              unselectedIconTheme: IconThemeData(
-                color: styles[2].backgroundcolor,
-              ),
+              unselectedIconTheme: IconThemeData(color: AppColor.gray),
               iconSize: 30,
-              unselectedItemColor: styles[2].backgroundcolor,
+              unselectedItemColor: AppColor.gray,
               items: [
                 BottomNavigationBarItem(
-                  icon: (SvgPicture.asset(icons[1], height: 28)),
+                  icon: (SvgPicture.asset(AppIcons.group2, height: 28)),
                   activeIcon: SvgPicture.asset(
-                    icons[0],
+                    AppIcons.group1,
                     height: 28,
                     // ignore: deprecated_member_use
-                    color: styles[0].backgroundcolor,
+                    color: AppColor.teal,
                   ),
                   label: 'الباحثين عن عمل'.tr(),
                 ),
                 BottomNavigationBarItem(
-                  icon: (SvgPicture.asset(icons[3], height: 28)),
+                  icon: (SvgPicture.asset(AppIcons.job2, height: 28)),
                   activeIcon: SvgPicture.asset(
-                    icons[2],
+                    AppIcons.job1,
                     height: 28,
                     // ignore: deprecated_member_use
-                    color: styles[0].backgroundcolor,
+                    color: AppColor.teal,
                   ),
                   label: 'وظائفي'.tr(),
                 ),
 
                 BottomNavigationBarItem(
-                  icon: (SvgPicture.asset(icons[5], height: 28)),
+                  icon: (SvgPicture.asset(AppIcons.add1, height: 28)),
 
                   activeIcon: SvgPicture.asset(
-                    icons[6],
+                    AppIcons.add2,
                     // ignore: deprecated_member_use
-                    color: styles[0].backgroundcolor,
+                    color: AppColor.teal,
                     height: 28,
                   ),
 
@@ -217,12 +213,12 @@ class _SuperhomeScreenState extends State<SuperhomeScreen> {
                 ),
 
                 BottomNavigationBarItem(
-                  icon: (SvgPicture.asset(icons[7], height: 25)),
+                  icon: (SvgPicture.asset(AppIcons.company1, height: 25)),
                   activeIcon: SvgPicture.asset(
-                    icons[8],
+                    AppIcons.company2,
                     height: 25,
                     // ignore: deprecated_member_use
-                    color: styles[0].backgroundcolor,
+                    color: AppColor.teal,
                   ),
                   label: 'الملف'.tr(),
                 ),

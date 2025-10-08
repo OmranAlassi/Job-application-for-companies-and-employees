@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jobs/classes/style&create_login_screen.dart';
+import 'package:jobs/core/const/app_colors.dart';
 
 // ignore: must_be_immutable
 class AppElevatedbutton extends StatelessWidget {
@@ -25,7 +25,7 @@ class AppElevatedbutton extends StatelessWidget {
         ),
         elevation: elevation,
         fixedSize: fixedSize,
-        backgroundColor: styles[0].backgroundcolor,
+        backgroundColor: AppColor.teal,
       ),
       onPressed: onPressed,
       child: Text(

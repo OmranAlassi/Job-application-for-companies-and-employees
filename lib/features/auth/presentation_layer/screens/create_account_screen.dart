@@ -1,14 +1,15 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:jobs/classes/route_page.dart';
-import 'package:jobs/classes/style&create_login_screen.dart';
-import 'package:jobs/classes/texthome_screen.dart';
-import 'package:jobs/components/app_elevatedbutton.dart';
-import 'package:jobs/components/app_textformfiled.dart';
-import 'package:jobs/components/custom_container.dart';
-import 'package:jobs/components/custom_container2.dart';
-import 'package:jobs/components/custom_togglebuttons.dart';
+import 'package:jobs/core/const/app_colors.dart';
+import 'package:jobs/core/const/app_icons.dart';
+import 'package:jobs/core/const/app_strings.dart';
+import 'package:jobs/core/route_manager.dart';
+import 'package:jobs/common/widgets/app_elevatedbutton.dart';
+import 'package:jobs/features/auth/presentation_layer/widgets/app_textformfiled.dart';
+import 'package:jobs/features/auth/presentation_layer/widgets/custom_container.dart';
+import 'package:jobs/features/auth/presentation_layer/widgets/custom_container2.dart';
+import 'package:jobs/features/auth/presentation_layer/widgets/custom_togglebuttons.dart';
 
 TextEditingController edit1 = TextEditingController();
 TextEditingController edit2 = TextEditingController();
@@ -37,12 +38,12 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: styles[0].backgroundcolor,
+        backgroundColor: AppColor.teal,
         automaticallyImplyLeading: false,
         toolbarHeight: 5,
       ),
       body: CustomContainer(
-        colors: [styles[0].backgroundcolor!, styles[3].backgroundcolor!],
+        colors: [AppColor.teal, AppColor.tealAccent],
         height: double.infinity,
         width: double.infinity,
         child: ListView(
@@ -60,24 +61,24 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                       children: [
                         SizedBox(height: 4),
                         SvgPicture.asset(
-                          icons[13],
+                          AppIcons.work,
                           height: 70,
                           // ignore: deprecated_member_use
-                          color: styles[0].backgroundcolor,
+                          color: AppColor.teal,
                         ),
                         Text(
-                          styles[4].title!.tr(),
+                          titles[4].title!.tr(),
                           style: TextStyle(
-                            color: styles[0].backgroundcolor,
+                            color: AppColor.teal,
                             fontWeight: FontWeight.bold,
                             fontSize: 26,
                           ),
                         ),
 
                         Text(
-                          styles[5].title!.tr(),
+                          titles[5].title!.tr(),
                           style: TextStyle(
-                            color: styles[0].backgroundcolor,
+                            color: AppColor.teal,
                             fontWeight: FontWeight.bold,
                             fontSize: 15,
                           ),
@@ -112,7 +113,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                                   size: 25,
                                 ),
                                 hintText: Text(
-                                  styles[3].title!.tr(),
+                                  titles[3].title!.tr(),
                                   style: TextStyle(fontSize: 15),
                                 ),
                                 textInputAction: TextInputAction.next,
@@ -129,7 +130,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                                 controller: edit2,
                                 prefixIcon: Icon(Icons.abc, size: 30),
                                 hintText: Text(
-                                  styles[6].title!.tr(),
+                                  titles[6].title!.tr(),
                                   style: TextStyle(fontSize: 15),
                                 ),
                                 textInputAction: TextInputAction.next,
@@ -147,7 +148,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                           prefixIcon: Icon(Icons.email_outlined, size: 25),
                           controller: edit3,
                           hintText: Text(
-                            styles[1].title!.tr(),
+                            titles[1].title!.tr(),
                             style: TextStyle(fontSize: 15),
                           ),
                           textInputAction: TextInputAction.next,
@@ -162,8 +163,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                             );
 
                             if (!emailRegex.hasMatch(value)) {
-                              return 'يرجى إدخال بريد إلكتروني صالح مثل example@domain.com'
-                                  .tr();
+                              return 'يرجى إدخال بريد إلكتروني صالح'.tr();
                             }
                             return null;
                           },
@@ -173,7 +173,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                           controller: edit4,
                           prefixIcon: Icon(Icons.person, size: 25),
                           hintText: Text(
-                            styles[7].title!.tr(),
+                            titles[7].title!.tr(),
                             style: TextStyle(fontSize: 15),
                           ),
                           textInputAction: TextInputAction.next,
@@ -197,11 +197,11 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                             },
                             borderRadius: BorderRadius.circular(12),
                             decoration: InputDecoration(
-                              label: Text(styles[9].title!.tr()),
+                              label: Text(titles[9].title!.tr()),
                               hintText: 'سوريا'.tr(),
                               prefixIcon: Icon(
                                 Icons.location_on_sharp,
-                                color: styles[2].backgroundcolor,
+                                color: AppColor.gray,
                               ),
                               errorBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(12),
@@ -217,15 +217,11 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                               errorStyle: TextStyle(color: Colors.red),
                               enabledBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(12),
-                                borderSide: BorderSide(
-                                  color: styles[1].backgroundcolor!,
-                                ),
+                                borderSide: BorderSide(color: AppColor.white1),
                               ),
                               focusedBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(12),
-                                borderSide: BorderSide(
-                                  color: styles[0].backgroundcolor!,
-                                ),
+                                borderSide: BorderSide(color: AppColor.teal),
                               ),
                             ),
                             dropdownColor: Colors.white,
@@ -265,12 +261,12 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                               isobscure
                                   ? Icons.visibility_off
                                   : Icons.visibility,
-                              color: styles[2].backgroundcolor,
+                              color: AppColor.gray,
                               size: 25,
                             ),
                           ),
                           hintText: Text(
-                            styles[2].title!.tr(),
+                            titles[2].title!.tr(),
                             style: TextStyle(fontSize: 15),
                           ),
                           textInputAction: TextInputAction.done,
@@ -302,12 +298,12 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                               isobscure2
                                   ? Icons.visibility_off
                                   : Icons.visibility,
-                              color: styles[2].backgroundcolor,
+                              color: AppColor.gray,
                               size: 25,
                             ),
                           ),
                           hintText: Text(
-                            styles[8].title!.tr(),
+                            titles[8].title!.tr(),
                             style: TextStyle(fontSize: 15),
                           ),
                           textInputAction: TextInputAction.go,
@@ -341,7 +337,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                               edit7.clear();
                             }
                           },
-                          title: styles[4].title!.tr(),
+                          title: titles[4].title!.tr(),
                           elevation: 3,
                           fixedSize: Size(
                             MediaQuery.of(context).size.width * 0.75,

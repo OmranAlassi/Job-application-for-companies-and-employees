@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jobs/classes/style&create_login_screen.dart';
+import 'package:jobs/core/const/app_colors.dart';
 
 // ignore: must_be_immutable
 class AppTextformfiled extends StatelessWidget {
@@ -45,15 +45,15 @@ class AppTextformfiled extends StatelessWidget {
           errorStyle: TextStyle(color: Colors.red),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(12),
-            borderSide: BorderSide(color: styles[1].backgroundcolor!),
+            borderSide: BorderSide(color: AppColor.teal),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(12),
-            borderSide: BorderSide(color: styles[0].backgroundcolor!),
+            borderSide: BorderSide(color: AppColor.teal),
           ),
           prefixIcon: prefixIcon,
           suffixIcon: suffixicon,
-          prefixIconColor: styles[2].backgroundcolor,
+          prefixIconColor: AppColor.gray,
           hint: hintText,
         ),
       ),

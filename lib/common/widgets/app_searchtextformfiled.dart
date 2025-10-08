@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jobs/classes/style&create_login_screen.dart';
+import 'package:jobs/core/const/app_colors.dart';
 
 // ignore: must_be_immutable
 class AppSearchtextformfiled extends StatelessWidget {
@@ -34,16 +34,16 @@ class AppSearchtextformfiled extends StatelessWidget {
         decoration: InputDecoration(
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(12),
-            borderSide: BorderSide(color: styles[1].backgroundcolor!),
+            borderSide: BorderSide(color: AppColor.white1),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(12),
-            borderSide: BorderSide(color: styles[0].backgroundcolor!),
+            borderSide: BorderSide(color: AppColor.teal),
           ),
           prefixIcon: prefixIcon,
           suffixIcon: suffixicon,
           hint: hintText,
-          prefixIconColor: styles[0].backgroundcolor,
+          prefixIconColor: AppColor.teal,
         ),
       ),
     );

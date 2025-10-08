@@ -1,9 +1,10 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:jobs/classes/style&create_login_screen.dart';
-import 'package:jobs/classes/texthome_screen.dart';
-import 'package:jobs/components/custom_container.dart';
+import 'package:jobs/core/const/app_colors.dart';
+import 'package:jobs/core/const/app_icons.dart';
+import 'package:jobs/core/const/app_strings.dart';
+import 'package:jobs/features/auth/presentation_layer/widgets/custom_container.dart';
 
 class FileScreen extends StatefulWidget {
   const FileScreen({super.key});
@@ -17,7 +18,7 @@ class _FileScreenState extends State<FileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: styles[4].backgroundcolor,
+      backgroundColor: AppColor.white2,
       body: Column(
         children: [
           Center(
@@ -26,7 +27,7 @@ class _FileScreenState extends State<FileScreen> {
               margin: EdgeInsets.all(20),
               width: MediaQuery.of(context).size.width * 0.48,
               borderRadius: BorderRadius.circular(18),
-              colors: [styles[3].backgroundcolor!, styles[3].backgroundcolor!],
+              colors: [AppColor.tealAccent, AppColor.tealAccent],
               child: Column(
                 spacing: 12,
                 children: [
@@ -34,11 +35,11 @@ class _FileScreenState extends State<FileScreen> {
                     padding: const EdgeInsets.only(top: 25),
                     child: CircleAvatar(
                       radius: 65,
-                      backgroundColor: styles[0].backgroundcolor,
+                      backgroundColor: AppColor.teal,
                       child: SvgPicture.asset(
-                        icons[8],
+                        AppIcons.company2,
                         // ignore: deprecated_member_use
-                        color: styles[4].backgroundcolor,
+                        color: AppColor.white2,
                         height: 65,
                       ),
                     ),
@@ -66,7 +67,7 @@ class _FileScreenState extends State<FileScreen> {
                   margin: EdgeInsets.all(16),
                   height: 70,
                   decoration: BoxDecoration(
-                    color: styles[4].backgroundcolor,
+                    color: AppColor.white2,
                     boxShadow: [
                       BoxShadow(
                         color: Colors.grey.withValues(alpha: 0.8),
@@ -85,7 +86,7 @@ class _FileScreenState extends State<FileScreen> {
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(left: 15, right: 15),
-                        child: works3[index],
+                        child: appicons[index],
                       ),
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,

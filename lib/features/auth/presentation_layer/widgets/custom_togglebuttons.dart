@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jobs/classes/style&create_login_screen.dart';
+import 'package:jobs/core/const/app_colors.dart';
 
 // ignore: must_be_immutable
 class CustomTogglebuttons extends StatelessWidget {
@@ -18,17 +18,17 @@ class CustomTogglebuttons extends StatelessWidget {
     return ToggleButtons(
       isSelected: isSelected,
       borderRadius: BorderRadius.circular(12),
-      fillColor: styles[0].backgroundcolor,
+      fillColor: AppColor.teal,
       selectedColor: Colors.white,
-      splashColor: styles[0].backgroundcolor,
-      color: styles[0].backgroundcolor,
+      splashColor: AppColor.teal,
+      color: AppColor.teal,
       renderBorder: true,
       textStyle: TextStyle(fontWeight: FontWeight.bold),
       constraints: BoxConstraints(
         minHeight: 50,
         minWidth: MediaQuery.of(context).size.width * 0.37,
       ),
-      selectedBorderColor: styles[0].backgroundcolor,
+      selectedBorderColor: AppColor.teal,
       onPressed: onPressed,
       children: children,
     );

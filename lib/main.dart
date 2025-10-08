@@ -1,9 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:jobs/classes/route_page.dart';
-import 'package:jobs/create_account_screen.dart';
-import 'package:jobs/login_screen.dart';
-import 'package:jobs/superhome_screen.dart';
+import 'package:jobs/core/route_manager.dart';
+import 'package:jobs/features/auth/presentation_layer/screens/create_account_screen.dart';
+import 'package:jobs/features/auth/presentation_layer/screens/login_screen.dart';
+import 'package:jobs/features/home/superhome_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

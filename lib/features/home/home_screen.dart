@@ -1,80 +1,82 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:jobs/classes/style&create_login_screen.dart';
-import 'package:jobs/classes/texthome_screen.dart';
-import 'package:jobs/components/app_searchtextformfiled.dart';
+import 'package:jobs/common/widgets/app_elevatedbutton.dart';
+import 'package:jobs/common/widgets/app_searchtextformfiled.dart';
+import 'package:jobs/core/const/app_colors.dart';
+import 'package:jobs/core/const/app_strings.dart';
 
-class JobsScreen extends StatefulWidget {
-  const JobsScreen({super.key});
+TextEditingController search1 = TextEditingController();
+
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
 
   @override
-  State<JobsScreen> createState() => _JobsScreenState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _JobsScreenState extends State<JobsScreen> {
-  List<ApptextScreen> results2 = [];
+class _HomeScreenState extends State<HomeScreen> {
+  List<AppStrings> results = [];
+
   @override
   void initState() {
     super.initState();
-    results2 = texts4;
+    results = texts;
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: styles[4].backgroundcolor,
+      backgroundColor: AppColor.white2,
       body: Column(
+        spacing: 5,
         children: [
           AppSearchtextformfiled(
             onChanged: (value) {
               setState(() {
-                results2 = texts4.where((item) {
+                results = texts.where((item) {
                   return item.name!.tr().toLowerCase().contains(
                     value.toLowerCase(),
                   );
                 }).toList();
               });
             },
-            hintText: Text('ابحث في وظائفك'.tr()),
+            hintText: Text('أبحث عن موظف'.tr()),
             keyboardType: TextInputType.webSearch,
             textInputAction: TextInputAction.search,
             prefixIcon: Icon(Icons.search),
           ),
-
           Padding(
             padding: const EdgeInsets.only(left: 20, right: 20),
             child: Row(
               children: [
                 Text(
-                  'وظائف شركتي'.tr(),
+                  'الباحثين عن عمل في سوريا'.tr(),
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
-                    color: styles[0].backgroundcolor,
+                    color: AppColor.teal,
                   ),
                 ),
               ],
             ),
           ),
           Expanded(
-            child: results2.isEmpty
+            child: results.isEmpty
                 ? Center(
                     child: Text(
                       'لا توجد نتائج'.tr(),
-                      style: TextStyle(
-                        fontSize: 18,
-                        color: styles[2].backgroundcolor,
-                      ),
+                      style: TextStyle(fontSize: 18, color: AppColor.gray),
                     ),
                   )
                 : ListView.builder(
-                    itemCount: results2.length,
+                    itemCount: results.length,
                     itemBuilder: (context, index) {
                       return Container(
                         margin: EdgeInsets.all(16),
                         height: 110,
                         decoration: BoxDecoration(
-                          color: styles[4].backgroundcolor,
+                          color: AppColor.white2,
+
                           boxShadow: [
                             BoxShadow(
                               color: Colors.grey.withValues(alpha: 0.8),
@@ -92,16 +94,13 @@ class _JobsScreenState extends State<JobsScreen> {
                           spacing: 12,
                           children: [
                             Padding(
-                              padding: const EdgeInsets.only(
-                                left: 10,
-                                right: 10,
-                              ),
+                              padding: const EdgeInsets.only(left: 8, right: 8),
                               child: CircleAvatar(
-                                backgroundColor: styles[0].backgroundcolor,
-                                radius: 25,
+                                backgroundColor: AppColor.teal,
+                                radius: 22,
                                 child: Icon(
-                                  Icons.work,
-                                  color: styles[4].backgroundcolor,
+                                  Icons.person,
+                                  color: AppColor.white2,
                                 ),
                               ),
                             ),
@@ -109,13 +108,12 @@ class _JobsScreenState extends State<JobsScreen> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
+                                Text(results[index].name!.tr()),
                                 SizedBox(
                                   width:
-                                      MediaQuery.of(context).size.width * 0.54,
-                                  child: Text(results2[index].name!.tr()),
+                                      MediaQuery.of(context).size.width * 0.4,
+                                  child: Text(texts2[index].name!.tr()),
                                 ),
-                                Text(texts3[index].name!.tr()),
-                                Text(texts5[index].name!.tr()),
                                 Row(
                                   spacing: 5,
                                   children: [
@@ -125,9 +123,9 @@ class _JobsScreenState extends State<JobsScreen> {
                                 ),
                               ],
                             ),
-                            IconButton(
+                            AppElevatedbutton(
                               onPressed: () {},
-                              icon: Icon(Icons.more_vert_outlined),
+                              title: 'تواصل'.tr(),
                             ),
                           ],
                         ),
