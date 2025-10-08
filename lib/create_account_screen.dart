@@ -328,7 +328,10 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                         AppElevatedbutton(
                           onPressed: () {
                             if (_formKey.currentState!.validate()) {
-                              Navigator.pushNamed(context, RoutePage.login);
+                              Navigator.pushReplacementNamed(
+                                context,
+                                RoutePage.login,
+                              );
                               edit1.clear();
                               edit2.clear();
                               edit3.clear();
