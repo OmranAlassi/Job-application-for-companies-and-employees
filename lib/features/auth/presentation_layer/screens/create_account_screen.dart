@@ -29,7 +29,6 @@ class CreateAccountScreen extends StatefulWidget {
 class _CreateAccountScreenState extends State<CreateAccountScreen> {
   bool isobscure = true;
   bool isobscure2 = true;
-  bool isDropdownSelected = true;
   bool isEmailSelected = true;
   List<bool> isSelected = [true, false];
   int? selectedcountry;
@@ -92,7 +91,6 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                               for (int i = 0; i < isSelected.length; i++) {
                                 isSelected[i] = i == index;
                                 isEmailSelected = index == 0;
-                                isDropdownSelected = index == 0;
                               }
                             });
                             edit1.clear();
