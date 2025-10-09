@@ -15,8 +15,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  List<AppStrings> results = [];
-
   @override
   void initState() {
     super.initState();

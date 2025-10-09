@@ -89,3 +89,4 @@ final List<AppStringRegister> titles = [
   AppStringRegister(title: 'تأكيد كلمة المرور'),
   AppStringRegister(title: 'الدولة'),
 ];
+List<AppStrings> results = [];
