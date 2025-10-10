@@ -45,7 +45,7 @@ class AppTextformfiled extends StatelessWidget {
           errorStyle: TextStyle(color: Colors.red),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(12),
-            borderSide: BorderSide(color: AppColor.teal),
+            borderSide: BorderSide(color: AppColor.white1),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(12),

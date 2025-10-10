@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:jobs/core/routes/route_manager.dart';
 import 'package:jobs/features/auth/presentation_layer/screens/create_account_screen.dart';
 import 'package:jobs/features/auth/presentation_layer/screens/login_screen.dart';
-import 'package:jobs/features/home/superhome_screen.dart';
+import 'package:jobs/features/home/presentation_layer/screens/superhome_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
