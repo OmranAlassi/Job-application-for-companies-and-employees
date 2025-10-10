@@ -4,7 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:jobs/core/const/app_colors.dart';
 import 'package:jobs/core/const/app_icons.dart';
 import 'package:jobs/core/const/app_strings.dart';
-import 'package:jobs/core/route_manager.dart';
+import 'package:jobs/core/routes/route_manager.dart';
 import 'package:jobs/common/widgets/app_elevatedbutton.dart';
 import 'package:jobs/features/auth/presentation_layer/widgets/app_textformfiled.dart';
 import 'package:jobs/features/auth/presentation_layer/widgets/custom_container.dart';

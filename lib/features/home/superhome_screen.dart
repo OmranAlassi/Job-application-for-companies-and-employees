@@ -1,14 +1,14 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:jobs/features/screens/addjobs_screen.dart';
+import 'package:jobs/common/widgets/screens/addjobs_screen.dart';
 import 'package:jobs/core/const/app_colors.dart';
 import 'package:jobs/core/const/app_icons.dart';
 import 'package:jobs/core/const/app_strings.dart';
-import 'package:jobs/core/route_manager.dart';
-import 'package:jobs/features/screens/file_screen.dart';
+import 'package:jobs/core/routes/route_manager.dart';
+import 'package:jobs/common/widgets/screens/file_screen.dart';
 import 'package:jobs/features/home/home_screen.dart';
-import 'package:jobs/features/screens/jobs_screen.dart';
+import 'package:jobs/common/widgets/screens/jobs_screen.dart';
 
 class SuperhomeScreen extends StatefulWidget {
   const SuperhomeScreen({super.key});
